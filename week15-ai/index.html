@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Food Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff6b6b;
+      --secondary: #ff8c42;
+      --accent: #4ecdc4;
+      --bg: #fafafa;
+      --card: #ffffff;
+      --text: #2d3436;
+      --muted: #848484;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Prompt', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      width: 100%;
+    }
+
+    .navbar .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+
+    /* Container */
+    .container {
+      padding-top: 120px;
+      width: 100%;
+      max-width: 420px;
+      padding: 0 20px;
+    }
+
+    /* Food Card */
+    .food-card {
+      background: var(--card);
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+      padding: 32px 24px;
+      text-align: center;
+      margin: 0 auto;
+      max-width: 360px;
+    }
+
+    .food-card:hover {
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .food-card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin: 0 auto 20px;
+      border: 4px solid var(--bg);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .food-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .food-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .food-card .price {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    /* Randomize Button */
+    .btn-randomize {
+      width: 100%;
+      padding: 14px 24px;
+      background: var(--secondary);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Prompt', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      margin-top: 12px;
+    }
+
+    .btn-randomize:hover {
+      background: var(--primary);
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(255,107,107,0.4);
+    }
+
+    .btn-randomize:focus {
+      outline: none;
+      border: 2px solid var(--accent);
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .container {
+        margin: 0 -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">What to Eat?</div>
+  </nav>
+
+  <div class="container">
+    <div class="food-card" id="foodCard">
+      <img id="foodImg" src="https://placehold.co/400x300/png?text=Random+Food&font=bebas&text_color=ffffff&bg_color=ff6b6b" alt="อาหาร">
+      <h2 id="foodName">อาหารสุ่ม</h2>
+      <p id="foodDesc">คลิกปุ่มด้านล่างเพื่อรับอาหารแนะนำ</p>
+      <div id="foodPrice" class="price">— บาท —</div>
+    </div>
+
+    <button class="btn-randomize" id="btnRandomize">Randomize</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
